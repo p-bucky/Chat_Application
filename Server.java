@@ -18,6 +18,8 @@ public class Server extends JFrame implements ActionListener {
 	static DataOutputStream dout;
 
 	Server() {
+		
+		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		a1 = new JTextArea();
 		a1.setBounds(2, 2, 340, 536);
@@ -73,12 +75,9 @@ public class Server extends JFrame implements ActionListener {
 				dout = new DataOutputStream(s.getOutputStream());
 				while (true) {
 					msginput = din.readUTF();
-					a1.setText(a1.getText() + "Friend: " + msginput + "\n");
+					a1.setText(a1.getText() + "\nFriend: " + msginput);
 					
 				}
-				skt.close();
-				s.close();
-
 			}
 
 		} catch (Exception e) {
