@@ -19,6 +19,8 @@ public class Client extends JFrame implements ActionListener {
 	static DataOutputStream dout;
 
 	Client() {
+		
+		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		a1 = new JTextArea();
 		a1.setBounds(2, 2, 340, 536);
@@ -52,7 +54,7 @@ public class Client extends JFrame implements ActionListener {
 
 		try {
 			String msg = t1.getText();
-			a1.setText(a1.getText() + "\t\t\tYou: " + msg + "\n");
+			a1.setText(a1.getText() + "\nYou: " + msg);
 			dout.writeUTF(msg);
 			t1.setText("");
 		} catch (IOException e) {
@@ -73,7 +75,7 @@ public class Client extends JFrame implements ActionListener {
 			String msginput = "";
 			while(true) {
 			msginput = din.readUTF();
-			a1.setText(a1.getText() + "Friend: " + msginput + "\n");
+			a1.setText(a1.getText() + "\nFriend: " + msginput);
 			}
 
 		} catch (Exception e) {
